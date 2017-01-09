@@ -1,0 +1,35 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <% show_export = current_user.present? %>
+      <table data-toggle="table"
+             data-url="<%= url %>"
+             data-pagination='true'
+             data-side-pagination='server'
+             data-page-number="1"
+             data-page-size="25"
+             data-click-to-select="true"
+             data-show-export="<%= show_export %>"
+             data-export-types="['csv']"
+             data-export-data-type="all"
+             data-query-params-type="other"
+             data-show-columns="true"
+             data-show-refresh="true"
+             data-sticky-header="true"
+             data-search="false"
+             data-search-on-enter-key="true"
+             data-pagination-v-align="top"
+             data-striped="true">
+        <thead>
+
+        <tr>
+          <th data-field="id" data-checkbox="true"></th>
+          <% hash.each do |k, v| %>
+            <th data-field="<%= k %>"><%= v %></th>
+          <% end %>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
